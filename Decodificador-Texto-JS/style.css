@@ -1,0 +1,13 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    justify-content:space-between;
+}
+main{
+    background-color: #F3F5FC;
+    ;
+    height:100vh;
+    width:75vh;
+}
