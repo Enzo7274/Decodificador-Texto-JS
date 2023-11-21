@@ -32,7 +32,7 @@ main{
 }
 #userInput{
     width:50%;
-    font-size: 32px;
+    font-size: 2rem;
     color: var(--color-secondary);
     margin: 10% 25%;
     max-width: 100%;
@@ -40,7 +40,7 @@ main{
 }
 #inputWarning{
     color:var(--color-quartiary);
-    font-size:12px;
+    font-size:0.75rem;
 }
 button{
     width:328px;
@@ -48,7 +48,7 @@ button{
     border-radius:24px;
     padding:24px;
     gap:8px;
-    font-size:16px;
+    font-size:1rem;
 }
 #crptButton{
     background-color:var(--color-secondary);
@@ -84,10 +84,10 @@ button{
 }
 strong.resultAside{
     color:var(--color-strong);
-    font-size:24px;
+    font-size:1.5rem;
 }
 span.resultAside{
-    font-size:16px;
+    font-size:1rem;
 }
 #outputDiv{
     margin-top:25px;
@@ -97,7 +97,7 @@ span.resultAside{
 }
 #outputText{
     color:var(--color-span);
-    font-size: 24px;
+    font-size: 1.5rem;
     text-align:start;
     white-space: pre-wrap;
     overflow-wrap:break-word;

@@ -16,11 +16,19 @@ Por exemplo:
 gaitober" => "gato"
 */
 
-var user;
+/*
+    TODO:
+    regex to find encrypted parts inside text on dscrpt() function
+    regex to find vogals to encrypt inside text on crpt() function
+*/
 
+var userInputVar;
+
+//Atribuindo os elementos HTML do site para as variáveis
 var asideParent = document.getElementById('resultAside');
 const noTextDiv = document.getElementById('noTextDiv');
 
+// criação de div's e outros elementos através do DOM (document object model)
 const outputDiv = document.createElement('div');
 outputDiv.id = 'outputDiv';
 
@@ -28,16 +36,23 @@ const resultText = document.createElement('span');
 resultText.id = 'outputText';
 outputDiv.appendChild(resultText);
 
-function containsUppercase(str) {
-    return /[A-Z]/.test(str);
-  }
 
-function dscrpt(paramText){
-    if(containsUppercase(paramText)){
-        console.log("LETRA MAIUSCULA");
+function containsAccentOrUppercase(str) {
+    return /[^a-z0-9_\s]/.test(str);
+}
+
+function inputWarning(paramStr){
+    if(containsAccentOrUppercase(paramStr)){
+        console.log("LETRA ESPECIAL/MAIUSCULA");
+        return true;
     } else {
         console.log("LETRA MINUSCULA");
+        return false;
     }
+}
+
+function dscrpt(){
+    
 }
 
 
@@ -47,14 +62,14 @@ function updateAside(){
     if(divCheck != null){
         asideParent.replaceChild(outputDiv, noTextDiv);
     }
-    resultText.textContent = user;
+    resultText.textContent = userInputVar;
 }
 
-/* userInput.addEventListener('input', function handleChange(event) {
+userInput.addEventListener('input', function handleChange(event) {
         console.log(event.target.value);
-      }); */
+      }); 
 
-function checkString(paramString) {
+function checkNotNullString(paramString) {
     if(paramString != null && paramString != "") {
         return true;
     } else{
@@ -62,8 +77,8 @@ function checkString(paramString) {
     }
 }
 function crptButton(){
-    user = document.getElementById('userInput').value;
-    if(checkString(user)){
+    userInputVar = document.getElementById('userInput').value;
+    if(checkNotNullString(userInputVar)){
         updateAside();
     } else {
         asideParent.replaceChild(noTextDiv, outputDiv);
@@ -71,10 +86,10 @@ function crptButton(){
 }
 
 function dscrptButton(){
-    user = document.getElementById('userInput').value;
-    if(checkString(user)){
+    userInputVar = document.getElementById('userInput').value;
+    if(checkNotNullString(userInputVar)){
+        dscrpt(userInputVar);
         updateAside();
-        dscrpt(user);
     } else {
         asideParent.replaceChild(noTextDiv, outputDiv);
     }
