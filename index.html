@@ -11,14 +11,20 @@
     <main>
         <img id="logo" src="./images/Vector.png"> <br>
         <textarea placeholder="Digite o seu texto" autocomplete="off" id="userInput" rows="10" cols="45"></textarea>
-        <button id="crptButton">Criptografar</button>
-        <button id="dscrptButton">Descriptografar</button>
+        <img src="./images/Aviso.png">
+        <span id="inputWarning">Apenas letras minúsculas e sem acento</span><br>
+        <button id="crptButton" onclick="crptButton()">Criptografar</button>
+        <button id="dscrptButton" onclick="dscrptButton()">Descriptografar</button>
     </main>
     <!-- parte exibida do código traduzido -->
-    <aside>
-        <img id="noText" src="./images/noText.png">
-        <strong>Nenhuma mensagem encontrada</strong>
-        <span>Digite um texto que você deseja criptografar ou descriptografar</span>
+    <aside id="resultAside" class="resultAside">
+        <div id="noTextDiv">
+            <img id="noTextImg" src="./images/noText.png">
+            <div><strong class="resultAside">Nenhuma mensagem encontrada</strong></div>
+            <div><span class="resultAside">Digite um texto que você deseja criptografar ou descriptografar</span></div>
+        </div>
     </aside>
+
+    <script src="script.js"></script>
 </body>
 </html>

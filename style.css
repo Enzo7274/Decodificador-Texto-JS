@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --color-primary:#F3F5FC;
+    --color-secondary:#0A3871;
+    --color-tertiary:#D8DFE8;
+    --color-aside:#FFFFFF;
+    --color-strong:#343A40;
+    --color-hover:#4f5861;
+    --color-span:#495057;
+    --color-hover-text:#9eacbb;
+}
 *{
     padding:0;
     margin:0;
@@ -9,7 +20,7 @@ body{
     display:flex;
     height:100vh;
     box-sizing:border-box;
-    background-color: #F3F5FC;
+    background-color: var(--color-primary);
 }
 main{
     
@@ -22,10 +33,14 @@ main{
 #userInput{
     width:50%;
     font-size: 32px;
-    color: #0A3871;
+    color: var(--color-secondary);
     margin: 10% 25%;
     max-width: 100%;
     resize: none;
+}
+#inputWarning{
+    color:var(--color-quartiary);
+    font-size:12px;
 }
 button{
     width:328px;
@@ -36,25 +51,54 @@ button{
     font-size:16px;
 }
 #crptButton{
-    background-color:#0A3871;
-    color:#D8DFE8;
+    background-color:var(--color-secondary);
+    color:var(--color-tertiary);
+}
+#crptButton:hover{
+    background-color:var(--color-hover);
+    color:var(--color-hover-text);
 }
 #dscrptButton{
-    background-color:#D8DFE8;
-    color:#0A3871;
+    background-color:var(--color-tertiary);
+    color:var(--color-secondary);
 }
-aside{
-    background-color:rgb(255, 255, 255);
-    margin: 2% 2% 0% 0%;
+#dscrptButton:hover{
+    background-color: var(--color-hover);
+    color:var(--color-hover-text);
+}
+#resultAside{
+    background-color:var(--color-aside);
     border-radius: 32px;
-    height:100%;
     width:25%;
     box-sizing:border-box;
     display:flex;
     flex-direction:column;
     align-items:center;
+    margin: 2% 2% 2% 0%;
+    color:var(--color-span);
+    text-align:center;
 }
-#noText{
+#noTextImg{
     margin-top:50%;
     width:75%;
+}
+strong.resultAside{
+    color:var(--color-strong);
+    font-size:24px;
+}
+span.resultAside{
+    font-size:16px;
+}
+#outputDiv{
+    margin-top:25px;
+    width:calc(100% - 50px);
+    display:flex;
+    flex-direction:column;
+}
+#outputText{
+    color:var(--color-span);
+    font-size: 24px;
+    text-align:start;
+    white-space: pre-wrap;
+    overflow-wrap:break-word;
 }
