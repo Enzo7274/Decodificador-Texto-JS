@@ -41,7 +41,7 @@ function containsAccentOrUppercase(str) {
     return /[^a-z0-9_\s]/.test(str);
 }
 
-function inputWarning(paramStr){
+function checkInputWarning(paramStr){
     if(containsAccentOrUppercase(paramStr)){
         console.log("LETRA ESPECIAL/MAIUSCULA");
         return true;
@@ -51,23 +51,55 @@ function inputWarning(paramStr){
     }
 }
 
-function dscrpt(){
-    
+function crpt(strParam){
+    let crptString = '';
+    /* crptString = crptString.replace('a', 'ai');
+    crptString = crptString.replace('e', 'enter');
+    crptString = crptString.replace('i', 'imes');
+    crptString = crptString.replace('o', 'ober');
+    crptString = crptString.replace('u', 'ufat'); */
+    for(let i = 0; i < strParam.length; i++){
+        switch(true){
+            case strParam[i] == 'a':
+                crptString += 'ai';
+                continue;
+            case strParam[i] == 'e':
+                crptString += 'enter';
+                continue;
+            case strParam[i] == 'i':
+                crptString += 'imes';
+                continue;
+            case strParam[i] == 'o':
+                crptString += 'ober';
+                continue;
+            case strParam[i] == 'u':
+                crptString += 'ufat';
+                                continue;
+            default:
+                crptString += strParam[i];
+                continue;
+        }
+    } 
+    return crptString;
 }
 
+function dscrpt(strParam){
+    let dscrptString = strParam;
+    dscrptString = dscrptString.replaceAll('ai', 'a');
+    dscrptString = dscrptString.replaceAll('enter', 'e');
+    dscrptString = dscrptString.replaceAll('imes', 'i');
+    dscrptString = dscrptString.replaceAll('ober', 'o');
+    dscrptString = dscrptString.replaceAll('ufat', 'u');
+    return dscrptString;
+}
 
-
-function updateAside(){
+function updateAside(paramStr){
     let divCheck = document.querySelector('#noTextDiv');
     if(divCheck != null){
         asideParent.replaceChild(outputDiv, noTextDiv);
     }
-    resultText.textContent = userInputVar;
+    resultText.textContent = paramStr;
 }
-
-userInput.addEventListener('input', function handleChange(event) {
-        console.log(event.target.value);
-      }); 
 
 function checkNotNullString(paramString) {
     if(paramString != null && paramString != "") {
@@ -76,10 +108,11 @@ function checkNotNullString(paramString) {
         return false;
     }
 }
+
 function crptButton(){
     userInputVar = document.getElementById('userInput').value;
     if(checkNotNullString(userInputVar)){
-        updateAside();
+        updateAside(crpt(userInputVar));
     } else {
         asideParent.replaceChild(noTextDiv, outputDiv);
     }
@@ -88,8 +121,7 @@ function crptButton(){
 function dscrptButton(){
     userInputVar = document.getElementById('userInput').value;
     if(checkNotNullString(userInputVar)){
-        dscrpt(userInputVar);
-        updateAside();
+        updateAside(dscrpt(userInputVar));
     } else {
         asideParent.replaceChild(noTextDiv, outputDiv);
     }
