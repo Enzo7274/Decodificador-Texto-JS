@@ -38,6 +38,9 @@ main{
     max-width: 100%;
     resize: none;
 }
+#inputWarningImg{
+    margin-left: 25%;
+}
 #inputWarning{
     color:var(--color-quartiary);
     font-size:0.75rem;
@@ -53,6 +56,7 @@ button{
 #crptButton{
     background-color:var(--color-secondary);
     color:var(--color-tertiary);
+    margin-left: 25%;
 }
 #crptButton:hover{
     background-color:var(--color-hover);
@@ -61,6 +65,7 @@ button{
 #dscrptButton{
     background-color:var(--color-tertiary);
     color:var(--color-secondary);
+    margin-left:5%;
 }
 #dscrptButton:hover{
     background-color: var(--color-hover);

@@ -27,7 +27,8 @@ var userInputVar;
 //Atribuindo os elementos HTML do site para as variáveis
 var asideParent = document.getElementById('resultAside');
 const noTextDiv = document.getElementById('noTextDiv');
-
+const resultTextStrong = document.getElementById('resultStrong');
+const resultTextSpan = document.getElementById('resultSpan');
 // criação de div's e outros elementos através do DOM (document object model)
 const outputDiv = document.createElement('div');
 outputDiv.id = 'outputDiv';
@@ -37,6 +38,7 @@ resultText.id = 'outputText';
 outputDiv.appendChild(resultText);
 
 
+
 function containsAccentOrUppercase(str) {
     return /[^a-z0-9_\s]/.test(str);
 }
@@ -44,10 +46,13 @@ function containsAccentOrUppercase(str) {
 function checkInputWarning(paramStr){
     if(containsAccentOrUppercase(paramStr)){
         console.log("LETRA ESPECIAL/MAIUSCULA");
-        return true;
+        changeOutputDiv();
+        resultTextStrong.innerHTML = 'Mensagem não suportada'
+        resultTextSpan.innerHTML = 'Digite um texto apenas com letras minúsculas e sem acentos ou caracteres especiais'
+        return false;
     } else {
         console.log("LETRA MINUSCULA");
-        return false;
+        return true;
     }
 }
 
@@ -101,6 +106,13 @@ function updateAside(paramStr){
     resultText.textContent = paramStr;
 }
 
+function changeOutputDiv(){
+    let divCheck = document.querySelector('#outputDiv');
+    if(divCheck != null){
+        asideParent.replaceChild(noTextDiv, outputDiv);
+    }
+}
+
 function checkNotNullString(paramString) {
     if(paramString != null && paramString != "") {
         return true;
@@ -112,17 +124,25 @@ function checkNotNullString(paramString) {
 function crptButton(){
     userInputVar = document.getElementById('userInput').value;
     if(checkNotNullString(userInputVar)){
-        updateAside(crpt(userInputVar));
+        if(checkInputWarning(userInputVar)){
+            updateAside(crpt(userInputVar));
+        }
     } else {
-        asideParent.replaceChild(noTextDiv, outputDiv);
+        changeOutputDiv();
+        resultTextStrong.innerHTML = 'Nenhuma mensagem encontrada';
+        resultTextSpan.innerHTML = 'Digite um texto que você deseja criptografar ou descriptografar';
     }
 }
 
 function dscrptButton(){
     userInputVar = document.getElementById('userInput').value;
     if(checkNotNullString(userInputVar)){
-        updateAside(dscrpt(userInputVar));
+        if(checkInputWarning(userInputVar)){
+            updateAside(dscrpt(userInputVar));
+        }
     } else {
-        asideParent.replaceChild(noTextDiv, outputDiv);
+        changeOutputDiv();
+        resultTextStrong.innerHTML = 'Nenhuma mensagem encontrada';
+        resultTextSpan.innerHTML = 'Digite um texto que você deseja criptografar ou descriptografar';
     }
 }
