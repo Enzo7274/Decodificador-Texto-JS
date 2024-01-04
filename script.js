@@ -18,8 +18,7 @@ gaitober" => "gato"
 
 /*
     TODO:
-    regex to find encrypted parts inside text on dscrpt() function
-    regex to find vogals to encrypt inside text on crpt() function
+    
 */
 
 var userInputVar;
@@ -145,4 +144,16 @@ function dscrptButton(){
         resultTextStrong.innerHTML = 'Nenhuma mensagem encontrada';
         resultTextSpan.innerHTML = 'Digite um texto que você deseja criptografar ou descriptografar';
     }
+}
+
+function copyButton(){
+    let copyText = document.querySelector("#outputText")
+    let range = document.createRange();
+
+    range.selectNode(copyText);
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+
+    alert("Texto copiado!");
+      
 }
