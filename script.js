@@ -18,7 +18,7 @@ gaitober" => "gato"
 
 /*
     TODO:
-    
+    Reajustar botão de copiar
 */
 
 var userInputVar;
@@ -36,7 +36,16 @@ const resultText = document.createElement('span');
 resultText.id = 'outputText';
 outputDiv.appendChild(resultText);
 
+const copyWarnSpan = document.createElement('span');
+copyWarnSpan.id = 'copyWarnSpan';
+copyWarnSpan.innerHTML = 'Texto copiado com sucesso';
+outputDiv.appendChild(copyWarnSpan);
 
+var copyButtonVar = document.createElement('button');
+copyButtonVar.id = 'copyButton';
+copyButtonVar.innerHTML = 'Copiar texto';
+copyButtonVar.addEventListener('click', copyButton);
+outputDiv.appendChild(copyButtonVar);
 
 function containsAccentOrUppercase(str) {
     return /[^a-z0-9_\s]/.test(str);

@@ -30,6 +30,7 @@ main{
 #logo{
     margin: 2% 5%;
 }
+
 #userInput{
     width:50%;
     font-size: 2rem;
@@ -45,6 +46,7 @@ main{
     color:var(--color-quartiary);
     font-size:0.75rem;
 }
+
 button{
     width:25%;
     height:7%;
@@ -53,6 +55,7 @@ button{
     gap:8%;
     font-size:100%; /* originaly was 1 rem||16px */
 }
+
 #crptButton{
     background-color:var(--color-secondary);
     color:var(--color-tertiary);
@@ -62,6 +65,7 @@ button{
     background-color:var(--color-hover);
     color:var(--color-hover-text);
 }
+
 #dscrptButton{
     background-color:var(--color-tertiary);
     color:var(--color-secondary);
@@ -71,6 +75,24 @@ button{
     background-color: var(--color-hover);
     color:var(--color-hover-text);
 }
+
+#copyButton{
+    width:100%;
+    background-color:var(--color-tertiary);
+    color:var(--color-secondary);
+}
+#copyButton:hover{
+    background-color: var(--color-hover);
+    color:var(--color-hover-text);
+}
+#copyButton:active{
+    background-color:var(--color-tertiary);
+    color:var(--color-secondary);
+}
+#copyWarnSpan{
+    
+}
+
 #resultAside{
     background-color:var(--color-aside);
     border-radius: 32px;
@@ -94,14 +116,17 @@ strong.resultAside{
 span.resultAside{
     font-size:1rem;
 }
+
 #outputDiv{
-    margin-top:25px;
+    margin-top:8%;
+    height:100%;
     width:calc(100% - 50px);
     display:flex;
     flex-direction:column;
 }
 #outputText{
     color:var(--color-span);
+    height: 88%;
     font-size: 1.5rem;
     text-align:start;
     white-space: pre-wrap;
